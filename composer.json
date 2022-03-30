@@ -29,6 +29,7 @@
         "phpunit/phpunit": "^9.5"
     },
     "require": {
-        "goldspecdigital/laravel-eloquent-uuid": "^8.0"
+        "goldspecdigital/laravel-eloquent-uuid": "^8.0",
+        "dyrynda/laravel-model-uuid": "^6.6"
     }
 }
