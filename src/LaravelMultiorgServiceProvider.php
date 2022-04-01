@@ -96,7 +96,7 @@ class LaravelMultiorgServiceProvider extends ServiceProvider
          if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../config/package_defaults.php' => config_path('laravel-multiorg.php'),
-            ], 'laravel-multiorg-migrations')
+            ], 'laravel-multiorg-migrations');
         }
 
         return $this;
