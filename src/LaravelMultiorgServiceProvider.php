@@ -51,7 +51,7 @@ class LaravelMultiorgServiceProvider extends ServiceProvider
         //$this->dashboard = $dashboard;
         $this
             //->registerKlorchidModelsForOrchid()
-            //->registerConfig()
+            ->registerConfig()
             //->registerKlorchid()
             //->registerProviders()
             //->registerTranslations()
@@ -73,10 +73,30 @@ class LaravelMultiorgServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             // Export the migration
             $this->publishes([
-                __DIR__ . '/../database/migrations/2022_03_16_104841_create_organization_table.php' => database_path('migrations/2022_03_16_104841_create_organization_table.php'),
+                __DIR__ . '/../database/migrations/2022_03_16_104841_create_organizations_table.php' => database_path('migrations/2022_03_16_104841_create_organizations_table.php'),
             ], 'laravel-multiorg-migrations');
 
 
+        }
+
+        return $this;
+    }
+
+    /**
+     * Register configuration.
+     *
+     * @return $this
+     */
+    protected function registerConfig(): self
+    {
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/package_defaults.php', 'laravel-multiorg'
+        );
+
+         if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/package_defaults.php' => config_path('laravel-multiorg.php'),
+            ], 'laravel-multiorg-migrations')
         }
 
         return $this;

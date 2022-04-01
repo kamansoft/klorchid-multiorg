@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrganizationTable extends Migration
+class CreateThirdsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateOrganizationTable extends Migration
      */
     public function up()
     {
-        Schema::create('organization', function (Blueprint $table):void {
+        Schema::create('thirds', function (Blueprint $table):void {
             $table->uuid('id')->primary();
+            $table->string('nin')->comment('national identtification number');
             $table->string('name');
             $table->text('description')->nullable();
             $table->timestamps();

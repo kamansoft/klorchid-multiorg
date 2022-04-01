@@ -35,6 +35,7 @@ class LaravelMultiorgInstallCommand extends Command {
 		$this->info('Installation started. Please wait...');
 
 		$this
+
 			->executeCommand('vendor:publish', [
 				'--provider' => LaravelMultiorgServiceProvider::class,
 				//'--force' => true,
