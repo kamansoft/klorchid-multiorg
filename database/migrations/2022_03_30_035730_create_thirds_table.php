@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Kamansoft\LaravelMultiorg\Models\Third;
 
 class CreateThirdsTable extends Migration
 {
@@ -15,11 +16,11 @@ class CreateThirdsTable extends Migration
     {
         Schema::create('thirds', function (Blueprint $table):void {
             $table->uuid('id')->primary();
-            $table->set('person_type', config('laravel-multiorg.person_types'));
-            $table->string('nin')->comment('national identtification number');
-
+            $table->set('person_type', [Third::JURIDICAL_PERSON_TYPE,Third::NATURAL_PERSON_TYPE]);
+            $table->string('nin')->comment('national identification number')->unique();
+            $table->text('address')->nullable();
             $table->string('name');
-            $table->text('description')->nullable();
+            $table->jsonb('extra_data')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateThirdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('organization');
+        Schema::dropIfExists('thirds');
     }
 }

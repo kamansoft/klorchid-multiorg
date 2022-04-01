@@ -1,5 +1,5 @@
 <?php
-namespace Kamansoft\LaravelMultiorg;
+namespace Kamansoft\LaravelMultiorg\Models;
 
 use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
 
