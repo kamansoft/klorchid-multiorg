@@ -74,6 +74,7 @@ class LaravelMultiorgServiceProvider extends ServiceProvider
             // Export the migration
             $this->publishes([
                 __DIR__ . '/../database/migrations/2022_03_16_104841_create_organizations_table.php' => database_path('migrations/2022_03_16_104841_create_organizations_table.php'),
+                __DIR__ . '/../database/migrations/2022_03_30_035730_create_thirds_table.php' => database_path('migrations/2022_03_30_035730_create_thirds_table.php'),
             ], 'laravel-multiorg-migrations');
 
 

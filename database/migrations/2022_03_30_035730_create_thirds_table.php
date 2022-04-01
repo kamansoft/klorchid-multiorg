@@ -15,7 +15,9 @@ class CreateThirdsTable extends Migration
     {
         Schema::create('thirds', function (Blueprint $table):void {
             $table->uuid('id')->primary();
+            $table->set('person_type', config('laravel-multiorg.person_types'));
             $table->string('nin')->comment('national identtification number');
+
             $table->string('name');
             $table->text('description')->nullable();
             $table->timestamps();
