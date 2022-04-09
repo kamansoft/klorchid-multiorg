@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateThirdUserTable extends Migration
+class CreateOrganizationRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,27 +13,27 @@ class CreateThirdUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('third_user', function (Blueprint $table) {
+        Schema::create('organization_roles', function (Blueprint $table) {
+            $table->uuid('id')->primary();
 
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')
+            $table->unsignedInteger('role_id');
+            $table->foreign('role_id')
                 ->references('id')
-                ->on('users')
+                ->on('roles')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignUuid('third_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->primary(['user_id', 'third_id']);
+            $table->foreignUuid('organization_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migratiohp ns.
+     * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('third_user');
+        Schema::dropIfExists('organization_roles');
     }
 }
