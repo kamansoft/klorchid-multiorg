@@ -1,1 +1,1 @@
-# klorchid-multiorg
+# platform-multiorg

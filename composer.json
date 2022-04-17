@@ -1,5 +1,5 @@
 {
-    "name": "kamansoft/klorchid-multiorg",
+    "name": "kamansoft/platform-multiorg",
     "description": "klorchid package to allow multi-organizational functionalities",
     "type": "library",
     "license": "MIT",
