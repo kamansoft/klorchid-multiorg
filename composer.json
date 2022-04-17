@@ -1,6 +1,6 @@
 {
-    "name": "kamansoft/laravel-multiorg",
-    "description": "laravel package to allow multiorganizational",
+    "name": "kamansoft/klorchid-multiorg",
+    "description": "klorchid package to allow multi-organizational functionalities",
     "type": "library",
     "license": "MIT",
     "autoload": {
