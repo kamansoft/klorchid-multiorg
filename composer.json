@@ -5,18 +5,18 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Kamansoft\\LaravelMultiorg\\": "src/"
+            "Kamansoft\\PlatformMultiorg\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kamansoft\\LaravelMultiorg\\": "tests/"
+            "Kamansoft\\PlatformMultiorg\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Kamansoft\\LaravelMultiorg\\LaravelMultiorgServiceProvider"
+                "Kamansoft\\PlatformMultiorg\\PlatformMultiorgServiceProvider"
             ]
         }
     },

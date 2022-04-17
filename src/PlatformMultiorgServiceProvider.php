@@ -1,11 +1,11 @@
 <?php
 
-namespace Kamansoft\LaravelMultiorg;
+namespace Kamansoft\PlatformMultiorg;
 
 use Illuminate\Support\ServiceProvider;
-use Kamansoft\LaravelMultiorg\Console\Commands\LaravelMultiorgInstallCommand;
+use Kamansoft\PlatformMultiorg\Console\Commands\PlatformMultiorgInstallCommand;
 
-class LaravelMultiorgServiceProvider extends ServiceProvider
+class PlatformMultiorgServiceProvider extends ServiceProvider
 {
 
 
@@ -15,14 +15,14 @@ class LaravelMultiorgServiceProvider extends ServiceProvider
      * @var array
      */
     public $commands = [
-        LaravelMultiorgInstallCommand::class,
+        PlatformMultiorgInstallCommand::class,
 
     ];
 
     public function register()
     {
         /*$this->mergeConfigFrom(
-            __DIR__ . '/../config/klorchid_package_config.php', 'laravel-multiorg'
+            __DIR__ . '/../config/klorchid_package_config.php', 'plaform-multiorg'
         );*/
         $this
             //->registerProviders()
@@ -77,7 +77,7 @@ class LaravelMultiorgServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../database/migrations/2022_03_16_104841_create_organizations_table.php' => database_path('migrations/2022_03_16_104841_create_organizations_table.php'),
                 __DIR__ . '/../database/migrations/2022_03_30_035730_create_thirds_table.php' => database_path('migrations/2022_03_30_035730_create_thirds_table.php'),
-            ], 'laravel-multiorg-migrations');
+            ], 'plaform-multiorg-migrations');
             */
             $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
@@ -94,13 +94,13 @@ class LaravelMultiorgServiceProvider extends ServiceProvider
     protected function registerConfig(): self
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/package_defaults.php', 'laravel-multiorg'
+            __DIR__ . '/../config/package_defaults.php', 'plaform-multiorg'
         );
 
          if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/package_defaults.php' => config_path('laravel-multiorg.php'),
-            ], 'laravel-multiorg-migrations');
+                __DIR__ . '/../config/package_defaults.php' => config_path('plaform-multiorg.php'),
+            ], 'plaform-multiorg-migrations');
         }
 
         return $this;

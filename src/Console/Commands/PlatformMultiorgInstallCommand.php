@@ -2,27 +2,27 @@
 
 declare (strict_types = 1);
 
-namespace Kamansoft\LaravelMultiorg\Console\Commands;
+namespace Kamansoft\PlatformMultiorg\Console\Commands;
 
 use Illuminate\Console\Command;
-use Kamansoft\LaravelMultiorg\LaravelMultiorgServiceProvider;
+use Kamansoft\PlatformMultiorg\PlatformMultiorgServiceProvider;
 use Orchid\Platform\Dashboard;
 
-class LaravelMultiorgInstallCommand extends Command {
+class PlatformMultiorgInstallCommand extends Command {
 
 	/**
 	 * The console command signature.
 	 *
 	 * @var string
 	 */
-	protected $signature = 'laravel-multiorg:install';
+	protected $signature = 'plaform-multiorg:install';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'laravel Multi organizational batch install';
+	protected $description = 'orchid platform Multi organizational batch install';
 
 	/**
 	 * Execute the console command.
@@ -36,10 +36,10 @@ class LaravelMultiorgInstallCommand extends Command {
 
 		$this
 			->executeCommand('vendor:publish', [
-				'--provider' => LaravelMultiorgServiceProvider::class,
+				'--provider' => PlatformMultiorgServiceProvider::class,
 				//'--force' => true,
 				'--tag' => [
-					'laravel-multiorg-migrations',
+					'plaform-multiorg-migrations',
 				],
 
 			]);

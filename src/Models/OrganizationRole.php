@@ -1,6 +1,6 @@
 <?php
 
-namespace Kamansoft\LaravelMultiorg\Models;
+namespace Kamansoft\PlatformMultiorg\Models;
 
 class OrganizationRole extends \Illuminate\Database\Eloquent\Model
 {
