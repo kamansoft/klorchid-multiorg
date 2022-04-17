@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrganizationRolesTable extends Migration
+class CreateOrganizationThirdTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,10 @@ class CreateOrganizationRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('organization_roles', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-
-            $table->unsignedInteger('role_id');
-            $table->foreign('role_id')
-                ->references('id')
-                ->on('roles')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+        Schema::create('organization_third', function (Blueprint $table) {
             $table->foreignUuid('organization_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->jsonb('extra_data')->nullable();
+            $table->foreignUuid('third_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->primary(['organization_id', 'third_id']);
             $table->timestamps();
         });
     }
@@ -35,6 +28,6 @@ class CreateOrganizationRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('organization_roles');
+        Schema::dropIfExists('organization_third');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace Kamansoft\LaravelMultiorg\Models;
 
+use App\Models\User;
 use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
 
 class Third extends Model
@@ -24,5 +25,14 @@ class Third extends Model
         'extra_data'
 
     ];
+
+
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function organizationRoles(){
+        return $this->belongsToMany(OrganizationRole::class);
+    }
 
 }

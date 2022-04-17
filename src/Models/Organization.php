@@ -19,4 +19,13 @@ class Organization extends Model
 
     ];
 
+
+    public function thirds(){
+        return $this->belongsToMany(Third::class);
+    }
+
+    public function  organizationRoles(){
+        return $this->hasMany(OrganizationRole::class);
+    }
+
 }

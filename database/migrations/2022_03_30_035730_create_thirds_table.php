@@ -20,6 +20,12 @@ class CreateThirdsTable extends Migration
             $table->string('nin')->comment('national identification number')->unique();
             $table->text('address')->nullable();
             $table->string('name');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('roles')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->jsonb('extra_data')->nullable();
             $table->timestamps();
         });
